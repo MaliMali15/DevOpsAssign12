@@ -46,8 +46,8 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block      = "0.0.0.0/0"
-    gateway_id      = aws_internet_gateway.main.id
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.main.id
   }
 
   tags = {
@@ -141,23 +141,9 @@ resource "aws_security_group" "devops" {
   }
 }
 
-# Create Key Pair
-resource "aws_key_pair" "devops" {
-  key_name   = "devops-key"
-  public_key = tls_private_key.devops.public_key_openssh
-}
-
-# Generate private key
-resource "tls_private_key" "devops" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-# Save private key locally
-resource "local_file" "private_key" {
-  content         = tls_private_key.devops.private_key_pem
-  filename        = "${path.module}/../terraform-key.pem"
-  file_permission = "0400"
+# Use existing AWS key pair
+locals {
+  existing_key_name = "devops-key"
 }
 
 # Create EC2 Instances
@@ -166,7 +152,7 @@ resource "aws_instance" "controller" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.devops.id]
-  key_name               = aws_key_pair.devops.key_name
+  key_name               = local.existing_key_name
 
   tags = {
     Name = "controller"
@@ -178,7 +164,7 @@ resource "aws_instance" "swarm_manager" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.devops.id]
-  key_name               = aws_key_pair.devops.key_name
+  key_name               = local.existing_key_name
 
   tags = {
     Name = "swarm-manager"
@@ -190,7 +176,7 @@ resource "aws_instance" "swarm_worker_a" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.devops.id]
-  key_name               = aws_key_pair.devops.key_name
+  key_name               = local.existing_key_name
 
   tags = {
     Name = "swarm-worker-a"
@@ -202,7 +188,7 @@ resource "aws_instance" "swarm_worker_b" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.devops.id]
-  key_name               = aws_key_pair.devops.key_name
+  key_name               = local.existing_key_name
 
   tags = {
     Name = "swarm-worker-b"
