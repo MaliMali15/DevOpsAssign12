@@ -2,7 +2,7 @@ name: Deploy DevOps App
 
 on:
   push:
-    branches: [ ITA700 ]
+    branches: [ ITA735 ]
 
 jobs:
   deploy:
