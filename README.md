@@ -1,4 +1,4 @@
-# DevOps Assignment - ITA700 - Bhavesh
+# DevOps Assignment - ITA735
 
 ## Project Overview
 Multi-server Django–PostgreSQL application deployment on AWS using Terraform, Ansible, Docker Swarm, and CI/CD automation.
