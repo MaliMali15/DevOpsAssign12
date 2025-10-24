@@ -295,5 +295,5 @@ terraform destroy -auto-approve
 ![Login Page](https://github.com/bhavesh230904/DevOps_Assignment/raw/ITA700/outputs/login.png)
 
 ### Home Page
-![Home Page](https://github.com/bhavesh230904/DevOps_Assignment/raw/ITA700/outputs/home.png)
+![Home Page]([https://github.com/bhavesh230904/DevOps_Assignment/raw/ITA700/outputs/home.png](https://github.com/MaliMali15/DevOpsAssign12/blob/ITA735/home.png))
 
