@@ -50,6 +50,7 @@ Multi-server Django–PostgreSQL application deployment on AWS using Terraform, 
     ├── terraform-key.pem # SSH key for instances
     └── terraform.tfstate # Terraform state file
 ```
+Note: Some of these file weren't pushed due to secutiry concerns (ex- terraform-key.pem is not on the repo)
 
 ## Architecture
 ```
