@@ -141,11 +141,11 @@ Note: Some of these file weren't pushed due to secutiry concerns (ex- terraform-
 ### Bootstrap Everything:
 ```bash
 # Clone repository
-git clone https://github.com/bhavesh230904/DevOps_Assignment.git
-cd DevOps_Assignment
+git clone https://github.com/bhavesh230904/DevOpsAssign12.git
+cd DevOpsAssign12
 
 # Checkout your branch
-git checkout ITA700
+git checkout ITA735
 
 # Configure AWS credentials
 aws configure
