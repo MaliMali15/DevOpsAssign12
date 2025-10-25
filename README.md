@@ -290,7 +290,7 @@ terraform destroy -auto-approve
 ## Project Screenshots
 
 ### Registration Page
-![Registration Page](https://github.com/MaliMali15/DevOpsAssign12/blob/ITA735/register.png)
+![Registration Page](https://github.com/MaliMali15/DevOpsAssign12/blob/ITA735/register2.png)
 ### Login Page
 ![Login Page](https://github.com/MaliMali15/DevOpsAssign12/blob/ITA735/login2.png)
 ### Home Page
